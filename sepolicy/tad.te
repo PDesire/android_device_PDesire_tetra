@@ -1,0 +1,6 @@
+type tad, domain, domain_deprecated;
+type tad_exec, exec_type, file_type;
+type taimport_exec, file_type, exec_type;
+
+# Allow tad to work it's magic
+allow tad trim_area_partition_device:blk_file rw_file_perms;

@@ -1,0 +1,73 @@
+#line 1 "device/PDesire/tetra/sepolicy"
+# GPU
+/dev/mm_v3d                     u:object_r:gpu_device:s0
+/dev/mm_interlock               u:object_r:gpu_device:s0
+
+# Console
+/dev/ttyS0                      u:object_r:console_device:s0
+
+# Bluetooth
+/dev/ttyS1                      u:object_r:hci_attach_dev:s0
+
+# NFC
+/dev/bcm2079x                   u:object_r:nfc_device:s0
+
+# Radio
+/dev/bcm_log                    u:object_r:radio_device:s0
+/dev/bcm_irpc                   u:object_r:radio_device:s0
+
+# Block devices
+/dev/block/platform/sdhci\.1/by-name/ta       u:object_r:trim_area_partition_device:s0
+/dev/block/platform/sdhci\.1/by-name/cache    u:object_r:cache_block_device:s0
+/dev/block/platform/sdhci\.1/by-name/userdata u:object_r:userdata_block_device:s0
+/dev/block/platform/sdhci\.1/by-name/boot     u:object_r:boot_block_device:s0
+/dev/block/platform/sdhci\.1/by-name/recovery u:object_r:recovery_block_device:s0
+/dev/block/zram0                              u:object_r:swap_block_device:s0
+
+# TrimArea and debug menu sockets
+/dev/socket/tad                 u:object_r:tad_socket:s0
+/dev/socket/sysdbg              u:object_r:sysdbg_socket:s0
+
+# Services
+/system/bin/capi2test           u:object_r:capi2test_exec:s0
+/system/bin/taimport            u:object_r:taimport_exec:s0
+/system/bin/sysdbg_service      u:object_r:sysdbg_service_exec:s0
+/system/bin/key_sleep_vibrate_service u:object_r:key_sleep_vibrate_exec:s0
+/system/bin/glgps               u:object_r:gpsd_exec:s0
+/system/bin/T2tNdefWrite        u:object_r:nfctagmodify_exec:s0
+/system/bin/iddd                u:object_r:idd_exec:s0
+/system/bin/idd-logreader       u:object_r:idd_exec:s0
+/system/bin/crashmonitorns      u:object_r:crashmonitorns_exec:s0
+/system/bin/chargemon           u:object_r:chargemon_exec:s0
+/system/bin/fixup_crashdumps.sh u:object_r:fixup_crashdumps_exec:s0
+/system/bin/top_sysmonitor.sh   u:object_r:top_sysmonitor_exec:s0
+
+# SystemMonitor data
+/data/misc/systemmonitor(/.*)?  u:object_r:sysmonitor_data_file:s0
+
+# debug menu client
+/system/bin/sysdbg              u:object_r:sysdbg_exec:s0
+# chargemon log
+/data/cm\.log                    u:object_r:chargemon_log_file:s0
+
+# data/crashdata
+/data/crashdata(/.*)? u:object_r:crashdata_data_file:s0
+
+# sysfs files
+/sys/devices/virtual/timed_output/vibrator/enable               u:object_r:sysfs_vibrator_writable:s0
+/sys/devices/platform/bcm-bt-rfkill.[0-9]*/rfkill/rfkill0/state u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/bcm-bt-rfkill.[0-9]*/rfkill/rfkill0/type  u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/3c200000\.kona-fb/panel_mode              u:object_r:sysfs_fb_writable:s0
+/sys/power/state                                                u:object_r:sysfs_power_writable:s0
+/sys/devices/platform/3e018000\.i2c/i2c-2/2-0028(/.*)?         u:object_r:sysfs_sensors_writable:s0
+/sys/devices/virtual/android_usb/android0(/.*)?                u:object_r:sysfs_usb_writable:s0
+/sys/devices/virtual/android_usb/android0/f_mass_storage/inquiry_string u:object_r:sysfs_usb_writable:s0
+/sys/devices/platform/3e017000\.i2c/i2c-1/1-0036/backlight/lm3630a_leda/brightness u:object_r:sysfs_backlight_writable:s0
+/sys/devices/platform/3500d000\.i2c/i2c-4/4-0008/bcmpmu_fg\.12\.auto/power_supply/battery u:object_r:sysfs_battery_writable:s0
+/sys/devices/platform/3500d000\.i2c/i2c-4/4-0008/bcmpmu_fg\.12\.auto/power_supply/battery/fg_factor u:object_r:sysfs_battery_writable:s0
+
+#line 1 "device/sony/tetra/sepolicy/file_contexts"
+#Sensor hub device
+/dev/em718x-0                   u:object_r:sensor_hub_device:s0
+/dev/em718x-wake-0              u:object_r:sensor_hub_device:s0
+

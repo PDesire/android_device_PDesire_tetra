@@ -1,0 +1,2 @@
+somc.                    u:object_r:somc_prop:s0
+persist.gps.             u:object_r:gpsd_prop:s0

@@ -1,0 +1,4 @@
+type trim_area_partition_device, dev_type;
+type sensor_hub_device, dev_type;
+
+allow device sensor_hub_device:blk_file rw_file_perms;

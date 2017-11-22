@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<global_keys version="1">
+    <key keyCode="KEYCODE_SETTINGS" component="com.google.android.apps.wearable.settings/com.google.android.clockwork.settings.GlobalKeyReceiver" />
+</global_keys>

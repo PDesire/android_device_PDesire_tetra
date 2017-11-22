@@ -1,0 +1,2 @@
+type somc_prop, property_type;
+type gpsd_prop, property_type;
